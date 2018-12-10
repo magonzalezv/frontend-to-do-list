@@ -1,3 +1,9 @@
+# Getting started
+Make sure you have the Angular CLI installed globally. 
+
+* Make sure to be ubicated in the directory with the code of the frontend in the console. the execute:
+`ng serve`
+
 # Todolist
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
