@@ -1,3 +1,9 @@
+# Getting started
+Make sure you have the Angular CLI installed globally. 
+
+* Make sure to be ubicated in the directory with the code of the frontend in the console. the execute:
+`ng serve`
+
 # Todolist
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
@@ -14,13 +20,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## The general page breakdown looks like this
+* List of all users (GET): (localhost:3000/user?since=1)
+* Create a new user (POST): (localhost:3000/user)
+* Update an user (PUT): (localhost:3000/user/:id)
+* Search users (GET): (localhost:3000/search/colection/users/:search)
+* Search an user by ID (GET): (localhost:3000/task/:id)
+* Create task (POST): (localhost:3000/task/)
+* Update task (PUT): (localhost:3000/task/:id)
+* Search task (GET): (http://localhost:3000/search/colection/tasks/:search)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
