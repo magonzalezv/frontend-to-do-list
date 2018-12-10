@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/service.index';
 import { Task } from '../../models/task.model';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -94,6 +96,35 @@ export class TasksComponent implements OnInit {
 
     this._taskService.searchTasks( text )
         .subscribe ( tasks => this.tasks = tasks );
+  }
+
+  // Delete Task by ID
+  deleteTask( id: string ) {
+
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not able to recover this task!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then(willDelete => {
+      
+        if (willDelete) {
+          this._taskService.deleteTask( id )
+            .subscribe( task => {
+              swal('The task have been deleted!', {
+          icon: 'success',
+        });
+        this.loadTasks();
+
+    });
+        }
+
+    });
+
+    
+
   }
 
 }

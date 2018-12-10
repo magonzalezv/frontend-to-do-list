@@ -66,11 +66,20 @@ export class TaskService {
 
   // Update a task by ID
   updateTask( task: Task ) {
-    console.log('Ok');
     const url = 'http://localhost:3000/task/' + task._id;
     return this.http.put( url, task )
          .pipe( map (( resp: any ) => {
           swal('Task Updated', task.name, 'success');
+          return resp.task;
+         }));
+  }
+
+  // Delete a task by ID
+  deleteTask ( id: string ) {
+    const url = 'http://localhost:3000/task/' + id;
+    return this.http.delete( url )
+         .pipe( map (( resp: any ) => {
+          swal('Task Deleted', 'Hola' , 'success');
           return resp.task;
          }));
   }
