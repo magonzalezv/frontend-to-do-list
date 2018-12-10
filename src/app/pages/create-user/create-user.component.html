@@ -1,0 +1,47 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="col-lg-6 ">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create User</h4>
+
+                    <form ngNativeValidate [formGroup]="shape" (ngSubmit)="registerUser()" class="form p-t-20">
+                        <div class="form-group">
+                            <label for="exampleInputuname">User Name</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input formControlName="name" name="name" type="text" required class="form-control" id="exampleInputuname" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-email"></i></div>
+                                <input formControlName="email" name="email" type="email" required class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd1">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input formControlName="password1" name="password" type="password" required class="form-control" id="pwd1" placeholder="Enter password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd2">Confirm Password</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input formControlName="password2" name="password2" type="password" required class="form-control" id="pwd2" placeholder="Enter password">
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="shape.errors?.areEquals && !shape.pristine">
+                            <p class="text-danger">The passwords should be equals</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-block waves-effect waves-light m-r-10">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

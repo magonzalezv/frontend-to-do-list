@@ -1,0 +1,60 @@
+<div class="row animated fadeIn">
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ task.name }}</h4>
+
+                <!--Form type ngForm-->
+                <form ngNativeValidate #shape="ngForm" (ngSubmit)="createTask(shape)" class="form p-t-20">
+                    <div class="form-group">
+                        <label for="exampleInputuname">Task name</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-tasks"></i></div>
+                            <input [(ngModel)]="task.name" name="name" type="text" required class="form-control" id="exampleInputuname" placeholder="Task name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-edit"></i></div>
+
+                            <textarea [(ngModel)]="task.description" name="description" class="form-control" aria-label="Enter description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>User:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            <select [(ngModel)]="task.userID" name="userID" class="form-control" required>
+                                  <option value="">Select an User</option>
+                                  <option *ngFor="let user of users" [value]="user._id">{{user.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-spinner"></i></div>
+                            <select [(ngModel)]="task.status" name="status" class="form-control" required>
+                                  <option class="success" value="">Select a Status</option>
+                                  <option  value="Open">Open</option>
+                                  <option  value="In-Progress">In-Progress</option>
+                                  <option  value="Completed">Completed</option>
+                                  <option  value="Archived">Archived</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-success btn-block waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Create</button>
+                    <a routerLink="/tasks" class="btn btn-inverse btn-block waves-effect waves-light m-r-10">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

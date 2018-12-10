@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="searchUser( input.value )" type="text" class="form-control" placeholder="Search user...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading page-->
+<div class="row animated fadeIn" *ngIf="loading">
+    <div class="col-sm-12 ">
+        <div class="alert alert-warning text-center">
+            <strong>Loading</strong>
+            <br>
+            <li class="fa fa-refresh fa-spin fa2x"></li>
+            <br>
+            <span>Please wait</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- List of users -->
+<div class="row animated fadeIn" *ngIf="!loading">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h3 class="card-title">Registered users ( <small> {{ totalUSers }}</small> )</h3>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="changeSince(-10)" class="btn btn-secondary">
+                  Anteriores
+                </button>
+                <button (click)="changeSince(10)" class="btn btn-secondary">
+                    Siguientes
+                  </button>
+
+            </div>
+        </div>
+    </div>
+</div>
